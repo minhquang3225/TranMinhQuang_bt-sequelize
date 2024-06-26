@@ -1,5 +1,5 @@
 import express from "express";
-import { getLike } from "../controllers/restaurantController.js";
+import { addRating, getLike, getListUserLiked, getListUserRating } from "../controllers/restaurantController.js";
 
 
 const restaurantRouter = express.Router();
@@ -7,10 +7,11 @@ const restaurantRouter = express.Router();
 // API chức năng
 restaurantRouter.get("/get-like/:resID/", getLike);
 // restaurantRouter.get("/get-unlike", getUnlike);
-// restaurantRouter.get("/get-list-user-liked". getListUserLiked);
+restaurantRouter.get("/get-list-user-liked/:resID", getListUserLiked
+);
 
-// restaurant.post("/add-feedback", feedback);
-// restaurant.get("/get-list-user-feedback", getListUserFeedback);
+restaurantRouter.put("/add-rating/:resID/:userID", addRating);
+restaurantRouter.get("/get-list-user-rating/:resID", getListUserRating);
 
 
 
